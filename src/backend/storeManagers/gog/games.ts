@@ -123,13 +123,6 @@ export async function getExtraInfo(appName: string): Promise<ExtraInfo> {
   const releaseDate =
     gamesData?._embedded.product?.globalReleaseDate?.substring(0, 19)
 
-  if (gogStoreUrl) {
-    const storeUrl = new URL(gogStoreUrl)
-    storeUrl.hostname = 'af.gog.com'
-    storeUrl.searchParams.set('as', '1838482841')
-    gogStoreUrl = storeUrl.toString()
-  }
-
   const extra: ExtraInfo = {
     about: gameInfo.extra?.about,
     reqs,
